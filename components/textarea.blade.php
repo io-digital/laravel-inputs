@@ -1,0 +1,27 @@
+<?php
+/**
+ * @param $field_name
+ * @param $cols string
+ * @param $rows string
+ * @param $class array
+ */
+$label = title_case(implode(' ', explode('_', $field_name)));
+?>
+<fieldset class="form-group {{ $errors->has($field_name) ? 'has-error' : '' }}">
+    <label for="{{ $field_name }}" class="col-md-2 control-label">{{ $label }}</label>
+    <div class="col-md-6">
+        <textarea
+            name="{{ $field_name }}"
+            id="{{ $field_name }}"
+            class="form-control {{ isset($class) ? implode(' ',$class) : ''}}"
+            cols="{{ isset($cols) ? $cols : '30' }}"
+            rows="{{ isset($rows) ? $rows : '10' }}"
+        >{{ isset($model->$field_name) ? $model->$field_name : old($field_name) }}</textarea>
+
+        @if ($errors->has($field_name))
+            <span class="help-block">
+                <strong>{{ $errors->first($field_name) }}</strong>
+            </span>
+        @endif
+    </div>
+</fieldset>
