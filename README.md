@@ -42,3 +42,7 @@ Currently the collection consists of the folowing:
 ```
 
 ### Checkbox
+
+```php
+@include('location-to-partial.checkbox', ['field_name' => 'remember_me', 'checked' => $item['remember_me'], 'model' => $item])
+```
