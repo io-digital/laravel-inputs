@@ -15,6 +15,7 @@ $label = title_case(implode(' ', explode('_',$field_name)));
                 class="form-control {{ isset($class) ? implode(' ',$class) : ''}}"
                 name="{{ $field_name }}"
                 id="{{ $field_name }}"
+                placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
                 value="{{null !== $input->get($field_name) ? $input->get($field_name) : isset($model->$field_name) ? $model->$field_name : old($field_name)}}"
                 @if (isset($accept))
                     accept="{{$accept}}"
